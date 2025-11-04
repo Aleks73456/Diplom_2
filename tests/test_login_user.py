@@ -17,7 +17,7 @@ class TestLoginUser:
     
     @allure.title('Проверка авторизации пользователя с некорректными данными')
     def test_login_invalid_password_and_email_user(self):
-        login_payload = helpers.invalid_payload_for_login_user()
+        login_payload = helpers.INVALID_LOGIN_PAYLOAD
         response = requests.post(f'{BASE_URL}/api/auth/login',json = login_payload)
         assert response.status_code == 401
         assert response.json()['message'] == helpers.ERROR_EMAIL_OR_PASSWORD_INCORRECT

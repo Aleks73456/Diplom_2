@@ -6,11 +6,22 @@ import allure
 
 
 BASE_URL = 'https://stellarburgers.education-services.ru'
+
 ERROR_USER_MUST_BE_AUTH = "You should be authorised"
 ERROR_INGREDIENT_IDS_REQUIRED = "Ingredient ids must be provided"
 ERROR_USER_DUBLICATE = 'User already exists'
 ERROR_REGIST_FIELDS_REQUIRED = 'Email, password and name are required fields'
 ERROR_EMAIL_OR_PASSWORD_INCORRECT = "email or password are incorrect"
+
+VALID_ORDER_PAYLOAD = {"ingredients": ["61c0c5a71d1f82001bdaaa6d", "61c0c5a71d1f82001bdaaa6f"]}
+
+INVALID_ORDER_PAYLOAD = {"ingredients": ["61c0c5a71d1f82001bdaaa6f", "61c0c5a71d1f820016f"]}
+
+CHANGE_USER_DATA_PAYLOAD = {"name": "dsfsf"}
+    
+
+INVALID_LOGIN_PAYLOAD = {"email": "dsfs@yandex.ru", "password": "2dre"}
+
 
 
 
@@ -60,22 +71,3 @@ def delete_user(access_token):
     headers = {'Authorization': access_token}
     response = requests.delete(f'{BASE_URL}/api/auth/user', headers=headers)
     return response
-
-
-def payload_for_create_order():
-    payload ={"ingredients": ["61c0c5a71d1f82001bdaaa6d","61c0c5a71d1f82001bdaaa6f"]}
-    return payload
-
-def invalid_payload_for_create_order():
-       payload = {"ingredients": ["61c0c5a71d1f82001bdaaa6f","61c0c5a71d1f820016f"]}
-       return payload
-
-def payload_for_change_user_data():
-       payload = {"name": "dsfsf"}
-       return payload
-
-def invalid_payload_for_login_user():
-       email ="dsfs@yandex.ru"
-       password = "2dre"
-       login_payload = {"email": email , "password": password}
-       return login_payload

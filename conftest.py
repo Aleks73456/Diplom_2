@@ -9,8 +9,4 @@ def regist():
     helpers.delete_user(access_token)
 
 
-@pytest.fixture
-def payload_for_regist():
-    helpers.payload_for_regist()
-    yield headers
-    helpers.delete_user(response.json()['accessToken'])
+
