@@ -6,6 +6,12 @@ import allure
 
 
 BASE_URL = 'https://stellarburgers.education-services.ru'
+ERROR_USER_MUST_BE_AUTH = "You should be authorised"
+ERROR_INGREDIENT_IDS_REQUIRED = "Ingredient ids must be provided"
+ERROR_USER_DUBLICATE = 'User already exists'
+ERROR_REGIST_FIELDS_REQUIRED = 'Email, password and name are required fields'
+ERROR_EMAIL_OR_PASSWORD_INCORRECT = "email or password are incorrect"
+
 
 
 def generate_random_string(length):

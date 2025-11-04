@@ -20,4 +20,4 @@ class TestChangeUserData:
         payload = helpers.payload_for_change_user_data()
         response = requests.patch(f'{BASE_URL}/api/auth/user',json = payload)
         assert response.status_code == 401
-        assert response.json()["message"] == "You should be authorised"
+        assert response.json()["message"] == helpers.ERROR_USER_MUST_BE_AUTH

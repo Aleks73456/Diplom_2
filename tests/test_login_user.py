@@ -20,5 +20,5 @@ class TestLoginUser:
         login_payload = helpers.invalid_payload_for_login_user()
         response = requests.post(f'{BASE_URL}/api/auth/login',json = login_payload)
         assert response.status_code == 401
-        assert response.json()['message'] == 'email or password are incorrect'
+        assert response.json()['message'] == helpers.ERROR_EMAIL_OR_PASSWORD_INCORRECT
         

@@ -16,5 +16,5 @@ class TestGetUserOrders:
     def test_get_user_orders_without_auth(self):
         response = requests.get(f'{BASE_URL}/api/orders')
         assert response.status_code == 401
-        assert response.json()['message'] == "You should be authorised"
+        assert response.json()['message'] == helpers.ERROR_USER_MUST_BE_AUTH
     

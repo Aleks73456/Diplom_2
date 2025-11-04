@@ -23,7 +23,7 @@ class TestCreateOrder:
     def test_create_order_without_ingredients(self,regist):
         response = requests.post(f'{BASE_URL}/api/orders', headers = regist)
         assert response.status_code == 400
-        assert response.json()["message"] == "Ingredient ids must be provided"
+        assert response.json()["message"] == helpers.ERROR_INGREDIENT_IDS_REQUIRED
         
     
     @allure.title('Проверка создания заказа с указанием несущестсвующих ингредиентов')

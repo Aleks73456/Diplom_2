@@ -20,7 +20,7 @@ class TestRegisterUser:
         response= requests.post(f'{BASE_URL}/api/auth/register', json=payload)
         response_two = requests.post(f'{BASE_URL}/api/auth/register', json=payload)
         assert response_two.status_code == 403
-        assert response_two.json()['message'] == 'User already exists'
+        assert response_two.json()['message'] == helpers.ERROR_USER_DUBLICATE
         helpers.delete_user(response.json()['accessToken'])
 
     @allure.title('Проверка регистрации без указания email')
@@ -28,4 +28,4 @@ class TestRegisterUser:
         payload = helpers.payload_for_regist_invalid()
         response = requests.post(f'{BASE_URL}/api/auth/register', json=payload)
         assert response.status_code == 403
-        assert response.json()['message'] == 'Email, password and name are required fields'
+        assert response.json()['message'] == helpers.ERROR_REGIST_FIELDS_REQUIRED
